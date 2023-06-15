@@ -1,8 +1,8 @@
 package es.urjc.code.daw.library.e2e.selenium;
 
-import org.openqa.selenium.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.time.Duration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,12 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 import es.urjc.code.daw.library.Application;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -37,7 +38,7 @@ public class SeleniumTest {
 	@BeforeEach
 	public void setupTest() {
         this.driver = new ChromeDriver();
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
 	@AfterEach
